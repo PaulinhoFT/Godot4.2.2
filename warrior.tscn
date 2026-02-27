@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bi8xxwulayb8l"]
+
+[ext_resource type="Script" uid="uid://byxb75mikdyao" path="res://warrior.gd" id="1_warrior"]
+[ext_resource type="Texture2D" uid="uid://dg3lr7es8wla4" path="res://Warrior/Warrior_Attack2.png" id="2_pkbmn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(49, 54)
+
+[sub_resource type="Animation" id="Animation_373gj"]
+resource_name = "new_animation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7o7qx"]
+_data = {
+&"new_animation": SubResource("Animation_373gj")
+}
+
+[node name="Warrior" type="CharacterBody2D" unique_id=709973663]
+position = Vector2(107, 98)
+script = ExtResource("1_warrior")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1213871948]
+position = Vector2(-1, -2)
+scale = Vector2(0.9947917, 1)
+texture = ExtResource("2_pkbmn")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1915256229]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1941797042]
+libraries/ = SubResource("AnimationLibrary_7o7qx")

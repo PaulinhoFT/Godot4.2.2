@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://c6j2k2q8p8j7x"]
+
+[ext_resource type="PackedScene" uid="uid://bi8xxwulayb8l" path="res://warrior.tscn" id="1_warrior"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1"]
+
+[node name="FaseTeste" type="Node2D" unique_id=1308566017]
+
+[node name="Warrior" parent="." unique_id=1428361068 instance=ExtResource("1_warrior")]
+position = Vector2(576, 324)
+
+[node name="Camera2D" type="Camera2D" parent="Warrior" unique_id=1244491962]
+zoom = Vector2(2, 2)
+limit_smoothed = true
+position_smoothing_enabled = true
+
+[node name="Chao" type="StaticBody2D" parent="." unique_id=104859385]
+position = Vector2(576, 600)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chao" unique_id=832071312]
+shape = SubResource("WorldBoundaryShape2D_1")
+
+[node name="Paredes" type="Node2D" parent="." unique_id=577641348]
+
+[node name="ParedeEsquerda" type="StaticBody2D" parent="Paredes" unique_id=1587365440]
+position = Vector2(0, 324)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paredes/ParedeEsquerda" unique_id=589718990]
+shape = SubResource("WorldBoundaryShape2D_1")
+
+[node name="ParedeDireita" type="StaticBody2D" parent="Paredes" unique_id=639611418]
+position = Vector2(1152, 324)
+rotation = -1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paredes/ParedeDireita" unique_id=80270040]
+shape = SubResource("WorldBoundaryShape2D_1")
+
+[node name="Teto" type="StaticBody2D" parent="Paredes" unique_id=550636290]
+position = Vector2(576, 0)
+rotation = 3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paredes/Teto" unique_id=744311729]
+shape = SubResource("WorldBoundaryShape2D_1")
+
+[node name="Instrucoes" type="Label" parent="." unique_id=635765465]
+offset_left = 441.0
+offset_top = 201.0
+offset_right = 767.0
+offset_bottom = 250.0
+text = "Use as SETAS para mover
+Ataques e Defesa: Configure no Input Map"
+horizontal_alignment = 1
