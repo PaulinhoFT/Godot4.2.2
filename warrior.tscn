@@ -16,4 +16,4 @@ texture = ExtResource("2_icon")
 shape = SubResource("RectangleShape2D_1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-# Nota: As animações devem ser criadas no Editor do Godot apontando para os arquivos na pasta 'warrior'
+; Nota: As animações devem ser criadas no Editor do Godot apontando para os arquivos na pasta 'warrior'
