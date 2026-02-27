@@ -21,7 +21,6 @@ func _ready():
 	vidas = vidas + 1
 	print(vidas)
 	pass 
-	
 """
 func _process(delta):
 	pass
