@@ -1,19 +1,106 @@
-[gd_scene load_steps=4 format=3 uid="uid://bi8xxwulayb8l"]
+[gd_scene load_steps=15 format=3 uid="uid://bi8xxwulayb8l"]
 
 [ext_resource type="Script" path="res://warrior.gd" id="1_warrior"]
-[ext_resource type="Texture2D" uid="uid://d06qxywbw3tai" path="res://icon.svg" id="2_icon"]
+[ext_resource type="Texture2D" uid="uid://b7f05022cc330a1a026be5760848e8244395d1f3" path="res://Warrior/Warrior_Idle.png" id="2_idle"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
-size = Vector2(120, 120)
+size = Vector2(49, 54)
+
+[sub_resource type="Animation" id="Animation_idle"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_idle")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_run"]
+resource_name = "run"
+length = 0.1
+
+[sub_resource type="Animation" id="Animation_atk1"]
+resource_name = "Attack 1"
+length = 0.1
+
+[sub_resource type="Animation" id="Animation_atk2"]
+resource_name = "Attack 2"
+length = 0.1
+
+[sub_resource type="Animation" id="Animation_guard"]
+resource_name = "guard"
+length = 0.1
+
+[sub_resource type="Animation" id="Animation_reset"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7o7qx"]
+_data = {
+"Attack 1": SubResource("Animation_atk1"),
+"Attack 2": SubResource("Animation_atk2"),
+"RESET": SubResource("Animation_reset"),
+"guard": SubResource("Animation_guard"),
+"idle": SubResource("Animation_idle"),
+"run": SubResource("Animation_run")
+}
 
 [node name="Warrior" type="CharacterBody2D"]
 script = ExtResource("1_warrior")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_icon")
+texture = ExtResource("2_idle")
+hframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-; Nota: As animações devem ser criadas no Editor do Godot apontando para os arquivos na pasta 'warrior'
+libraries = {
+"": SubResource("AnimationLibrary_7o7qx")
+}
+autoplay = "idle"
