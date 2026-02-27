@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bi8xxwulayb8l"]
+
+[ext_resource type="Script" path="res://warrior.gd" id="1_warrior"]
+[ext_resource type="Texture2D" uid="uid://d06qxywbw3tai" path="res://icon.svg" id="2_icon"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(120, 120)
+
+[node name="Warrior" type="CharacterBody2D"]
+script = ExtResource("1_warrior")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_icon")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+# Nota: As animações devem ser criadas no Editor do Godot apontando para os arquivos na pasta 'warrior'

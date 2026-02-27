@@ -1,11 +1,11 @@
-[gd_scene format=3 uid="uid://bi8xxwulayb8l"]
+[gd_scene load_steps=3 format=3 uid="uid://bi8xxwulayb8l"]
 
+[ext_resource type="Script" path="res://primeiroscript.gd" id="1_gui76"]
 [ext_resource type="Texture2D" uid="uid://d06qxywbw3tai" path="res://icon.svg" id="1_ky2te"]
-[ext_resource type="Script" uid="uid://chr25rlbkogx3" path="res://movimento.gd" id="1_vvf27"]
 
-[node name="Personagem" type="Node2D" unique_id=1605347713]
+[node name="Personagem" type="Node2D"]
+script = ExtResource("1_gui76")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=583208043]
-position = Vector2(513, 300)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(106, 546)
 texture = ExtResource("1_ky2te")
-script = ExtResource("1_vvf27")
