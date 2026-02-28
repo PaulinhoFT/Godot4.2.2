@@ -1,21 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6j2k2q8p8j7x"]
+[gd_scene load_steps=4 format=3 uid="uid://c6j2k2q8p8j7x"]
 
 [ext_resource type="PackedScene" uid="uid://bi8xxwulayb8l" path="res://warrior.tscn" id="1_warrior"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1"]
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_1"]
+size = Vector2(2000, 40)
+
 [node name="FaseTeste" type="Node2D"]
 
 [node name="Warrior" parent="." instance=ExtResource("1_warrior")]
-position = Vector2(576, 324)
+position = Vector2(576, 550)
 
 [node name="Camera2D" type="Camera2D" parent="Warrior"]
-zoom = Vector2(2, 2)
+zoom = Vector2(3, 3)
 limit_smoothed = true
 position_smoothing_enabled = true
 
 [node name="Chao" type="StaticBody2D" parent="."]
 position = Vector2(576, 600)
+
+[node name="Sprite2D" type="Sprite2D" parent="Chao"]
+modulate = Color(0.188235, 0.447059, 0.207843, 1)
+texture = SubResource("PlaceholderTexture2D_1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chao"]
 shape = SubResource("WorldBoundaryShape2D_1")
@@ -36,18 +43,12 @@ rotation = -1.5708
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paredes/ParedeDireita"]
 shape = SubResource("WorldBoundaryShape2D_1")
 
-[node name="Teto" type="StaticBody2D" parent="Paredes"]
-position = Vector2(576, 0)
-rotation = 3.14159
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Paredes/Teto"]
-shape = SubResource("WorldBoundaryShape2D_1")
-
 [node name="Instrucoes" type="Label" parent="."]
-offset_left = 445.0
-offset_top = 200.0
-offset_right = 707.0
-offset_bottom = 226.0
-text = "Use as SETAS para mover
+modulate = Color(0, 0, 0, 1)
+offset_left = 373.0
+offset_top = 450.0
+offset_right = 773.0
+offset_bottom = 502.0
+text = "Use as SETAS para mover e CIMA para pular
 Ataques e Defesa: Configure no Input Map"
 horizontal_alignment = 1
